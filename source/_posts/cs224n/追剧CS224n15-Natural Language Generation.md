@@ -2,7 +2,7 @@
 title: 追剧CS224n|15-Natural Language Generation
 thumbnail: /image/zhihu/cs224n15_thumbnail.jpg
 date: 2020/4/7
-catagories: 
+categories: 
 - CS224n
 tags: [NLP, deep learning]
 ---
