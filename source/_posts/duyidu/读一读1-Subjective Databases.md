@@ -19,11 +19,11 @@ tags: [NLP, 机器学习, database]
 而Marker summaries就是对Linguistic domains的总结(方便存储在数据库中), 他们本质表达的是同样的意思, 每一个Marker相当于就是对Linguistic domains中的一些短语的总结. Marker summaries有linearly-ordered和categorical两种类型. 对食物的味道来说就是linearly-ordered, 比如可以分为[very_disgusting, disgusting, average, delicious, very_delicious], 他们由情感分析得到的分数依次递增; 而对于食物的风味就应该是categorical的, 比如[辣的, 甜的, 咸的].
 
 数据库的结构如下(hotel example).
-![](/image/zhihu/duyidu1_1.png)
+![](/image/duyidu1_1.png)
 
 ### Processing subjective queries
 首先要明确虽然paper设计了全新的数据库, 但是它本质上还是基于PostgreSQL, 所以第一步就得把主观的query通过fuzzy logic翻译成传统的SQL query. 这里就出现了一个问题: 用户的query无法匹配数据库中的marker summary咋办? papar采用了下图的流程去寻找. 最后系统query结合数据库中的数据, 就可以共同算出每个结果的degree of truth, 许多传统机器学习的模型都可以做到这一点, 比如logistic regression最后的结果就是一个0到1之间分数. 
-![](/image/zhihu/duyidu1_2.png)
+![](/image/duyidu1_2.png)
 
 ### Designing subjective databases
 重头戏来了, 到底如何设计整个Subjective Databases呢? 首先就要解决怎么设计marker summary这个问题, 有了marker summary才能整合数据到数据库中. 对于每个评论都对其进行tagging(类似NER), 最后就可以得到很多个(aspect, opinion)这样的pair, 把这些pair分配到数据库开发者定义好的属性上, 就得到了Linguistic domains. 对于linearly-ordered的domain, 用sentiment analysis就可以把它们分配给每一级的marker, 而对于categorical的domain, 就可以使用基于cluster的算法对他们进行总结. paper现在只是把每一种marker对应短语或者说pair的出现次数进行累加并且存储到数据库中.

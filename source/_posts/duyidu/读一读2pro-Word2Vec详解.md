@@ -12,12 +12,12 @@ tags: [NLP, 机器学习, 深度学习]
 
 # CBOW
 CBOW的结构如下, 让我们来一点一点分析.
-![](./image/duyidu2pro_1.png)
+![](/image/duyidu2pro_1.png)
 
 先从左到右观察这个模型的结构, 左边的$x_{1k}, x_{2k}, ..., x_{Ck}$就是one-hot形式的词向量, 他们共同构成了input layer. 而中间的hidden layer把输入的onehot词向量encode成我们想要的词向量, 他的维度等于最后训练得到的词向量的维度. output layer代表了预测的中心单词. **所以说CBOW其实就是用上下文来预测中间的单词**, 而词向量是通过hidden layer产生的副产物. 那么顾名思义, CBOW中bag-of-word就是指的输入层连续的单词, 而continuous表示了这个选词的窗口在持续地滑动. CBOW大致的思想就是这样.
 
 好, 为了详细的解释每一个参数, 我们把结构简化一下. 现在假设input只有一个context word, 也就是用一个context word去预测一个target word. 那么结构就成了这样.
-![](./image/duyidu2pro_2.png)
+![](/image/duyidu2pro_2.png)
 
 input layer变成了单独的一个one-hot的输入(实际不一定是one-hot, 但是为了方便理解用one-hot解释会好一点), 而从input到hidden, 从hidden到output的weight用$W$和$W^{'}$来表示, 注意这里的$W$和$W^{'}$是完全不同的两个矩阵, 它们互相不构成转置关系. 下面开始解释神经网络向前传播的过程.
 
@@ -108,7 +108,7 @@ $v_{w_{I, c}}^{(new)} = v_{w_{I, c}}^{(old)} - \frac{1}{C}\eta EH^{T}$
 
 # Skip-Gram
 对比CBOW, Skip-Gram的区别是用中间的单词去预测周围的context word. 两种结构推导的过程是类似的, 模们这里也使用同样的符号来表示各个参数.
-![](./image/duyidu2pro_3.png)
+![](/image/duyidu2pro_3.png)
 
 **从input到hidden**, 和单context输入的CBOW没有区别: 
 
@@ -148,7 +148,7 @@ $v_{w_{I}}^{(new)} = v_{w_{I}}^{(old)} - \eta EH^{T}$
 在读一读2中提到过, CBOW和Skip-gram和NNLM相比, 简化的主要是hidden layer的计算. 说的更准确一点, 让我们看上面推导的概率公式, 可以发现在已知EH的情况下计算input vector $v_{w}$是容易的, 而复杂的计算主要存在于求output vector $v_{w}^{'}$时, 每一次的训练都需要对语料库中的每一个单词计算prediction error. 所以接下来我们需要思考怎么优化output vector $v_{w}^{'}$的计算. 
 
 ## Hierarchical Softmax
-![](./image/duyidu2pro_4.png)
+![](/image/duyidu2pro_4.png)
 **Hierarchical Softmax**是优化softmax的算法. 其中白色的代表语料库中的单词, 深色的点代表Huffman Tree的inner units. 那么现在我们把一个单词是output word的概率定义为下式:
 
 $p(w=w_{O}) = \prod^{L(w)-1}_{j=1}\sigma (F[n(w,j+1)=ch(n(w,j))]\cdot \boldsymbol{v}_{n(w,j)}^{'T}\cdot \boldsymbol{h})$
