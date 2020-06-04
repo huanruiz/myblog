@@ -1,6 +1,6 @@
 ---
 title: 追剧CS224n|15-Natural Language Generation
-thumbnail: /image/zhihu/cs224n15_thumbnail.jpg
+thumbnail: /image/cs224n15_thumbnail.jpg
 date: 2020/4/7
 categories: 
 - CS224n
@@ -15,10 +15,10 @@ tags: [NLP, deep learning]
 那么考虑attention直接用来representation, 通过每个embedding的比较来得到特征. 对任意两个位置, 他们的path length是一个定值. 
 
 **Softmax temperature**(不是decoding algorithm)就是指在普通的softmax上架了一个temperature $\tau$, 如果$\tau$升高, 那么概率分布会更加平缓, 反之就会更加尖锐. 在decoding的时候就可以引入它. 当然对于greedy decoding他是没有用的, 因为比较argmax结果依然不会变.
-![](/image/zhihu/cs224n15_1.png)
+![](/image/cs224n15_1.png)
 
 下面是各种decoding算法的总结. 
-![](/image/zhihu/cs224n15_2.png)
+![](/image/cs224n15_2.png)
 
 接下来介绍NLG task **Summarization**, 也就是说用更短的文字总结长的文字. 它包括了**Extractive summarization**和**Abstractive summarization**, 前者是从原文字中摘选总结, 后者是生成新的自然语言来总结, 所以后者更加灵活也更难.
 
@@ -29,22 +29,22 @@ tags: [NLP, deep learning]
 现在当然人们都喜欢**Neural summarization**了. Single-document abstractive summarization其实就是一个翻译任务, 也可以用seq2seq + attention NMT(copy mechanisms), 但是它对总结细节不太擅长. 而且copy mechanisms通常生成的总结太长了. 对比较长的document, 它的表现也不好, 为了解决这些问题就需要**Bottom-up summarization**.
 
 Bottom-up summarization分离了content selection和surface realization这两个部分. 在content selection是用neural sequence-tagging model来标注是否包含某个词, 在Bottom-up attention部分, 系统无法读取上标注为无法读取的词.
-![](/image/zhihu/cs224n15_3.png)
+![](/image/cs224n15_3.png)
 
 **Dialogue**也是一种NLG任务, 分类如下图. 人们首先尝试了Seq2Seq, 但是发现这样对话会有Genericness, Irrelevant responses, Repetition等等问题. 所以需要**Maximum Mutual Information(MMI)**, 它会惩罚generic response.
-![](/image/zhihu/cs224n15_4.png)
+![](/image/cs224n15_4.png)
 
 下图介绍了其他方式来解决Genericness/boring response problem:
-![](/image/zhihu/cs224n15_5.png)
+![](/image/cs224n15_5.png)
 
 对Repetition problem解决方式如下:
-![](/image/zhihu/cs224n15_6.png)
+![](/image/cs224n15_6.png)
 
 **Storytelling**就是根据图片, 一段文字生成一个故事, 或者不断生成故事的下一句. 最后课上进一步介绍了evaluation. 其实发现各种automatic evaluation都不能完全展现模型的好坏, 而Human evaluation虽然可以作为标注, 但是人工评价效率比较低而且比较主观.
 
 下面是老师的一些经验总结:
-![](/image/zhihu/cs224n15_7.png)
-![](/image/zhihu/cs224n15_8.png)
+![](/image/cs224n15_7.png)
+![](/image/cs224n15_8.png)
 
 ## REFERENCES
 [1] CS224n: Natural Language Processing with Deep Learning. http://web.stanford.edu/class/cs224n/index.html#coursework.

@@ -1,6 +1,6 @@
 ---
 title: 追剧CS224n|4-Backpropagation
-thumbnail: /image/zhihu/cs224n4_thumbnail.jpg
+thumbnail: /image/cs224n4_thumbnail.jpg
 date: 2020/3/29
 categories: 
 - CS224n

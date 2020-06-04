@@ -1,6 +1,6 @@
 ---
 title: 追剧CS224n|9-Practical Tips for Projects
-thumbnail: /image/zhihu/cs224n9_thumbnail.jpg
+thumbnail: /image/cs224n9_thumbnail.jpg
 date: 2020/4/2
 categories: 
 - CS224n

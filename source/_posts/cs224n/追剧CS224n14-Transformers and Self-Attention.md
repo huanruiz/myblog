@@ -1,6 +1,6 @@
 ---
 title: 追剧CS224n|14-Transformers and Self-Attention
-thumbnail: /image/zhihu/cs224n14_thumbnail.jpg
+thumbnail: /image/cs224n14_thumbnail.jpg
 date: 2020/4/6
 categories: 
 - CS224n
@@ -11,10 +11,10 @@ tags: [NLP, deep learning]
 <!-- more -->
 
 那么考虑attention直接用来representation, 通过每个embedding的比较来得到特征. 对任意两个位置, 他们的path length是一个定值. 
-![](/image/zhihu/cs224n14_1.png)
+![](/image/cs224n14_1.png)
 
 transformer的整体结构如下(Seq2Seq). transformer的速度比RNN, CNN都快. 但是他依然有个问题, 在卷积的时候对不同位置采取了不同的linear transformation, 但是self-attention中对不同位置采取的是相同的变换, 所以它并不能针对不同的位置提取不同的信息, 那么就需要**multiheads**了. 同时注意, residual可以把**positional information**带到higher layers.
-![](/image/zhihu/cs224n14_2.png)
+![](/image/cs224n14_2.png)
 
 后面就是介绍了music generation不是重点直接跳过. 课上的介绍非常的笼统, 我觉得想要理解直接读paper[3]就好了.
 
