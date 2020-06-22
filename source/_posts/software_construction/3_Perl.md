@@ -1,7 +1,8 @@
 ---
-title: week3|Perl
+title: week3-4|Perl
 date: 2020/6/19
 categories: 
+- 学习笔记
 - software construction
 tags: [Perl, 脚本]
 ---

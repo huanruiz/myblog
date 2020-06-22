@@ -2,6 +2,7 @@
 title: week1|Unix filters
 date: 2020/6/2
 categories: 
+- 学习笔记
 - software construction
 tags: [git, 脚本]
 ---

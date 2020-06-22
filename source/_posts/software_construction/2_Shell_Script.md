@@ -2,6 +2,7 @@
 title: week2|Shell Script
 date: 2020/6/9
 categories: 
+- 学习笔记
 - software construction
 tags: [Shell, 脚本]
 ---
