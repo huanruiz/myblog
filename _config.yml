@@ -5,7 +5,7 @@
 # Site
 title: Harry的个人博客
 subtitle: ''
-description: ''
+description: '不断学习的小学生'
 keywords:
 author: Harry
 language: en
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://huanruiz.github.io
 root: /
 permalink: :year/:title/
 permalink_defaults:
@@ -94,6 +94,15 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+# RSS订阅支持
+plugin:
+- hexo-generator-feed
+
+# Feed Atom
+feed:
+type: atom
+path: atom.xml
+limit: 20
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
