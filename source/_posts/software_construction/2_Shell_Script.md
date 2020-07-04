@@ -33,3 +33,14 @@ shell的语法其实在[runoob](https://www.runoob.com/linux/linux-shell.html)
 - test可以根据condition进行判断, 注意在写shell script的时候比较integer的符号和比较string的符号不同. 
 - diff可以用来比较输入输出, 在学校写测试比较程序输出结果的时候比较有用. 
 - date可以查看日期, 结合cut就可以提取具体信息.
+
+# 一些问题
+## 脚本互相调用的路径
+在lab中我发现了一个有趣的问题, 如果在路径/lab/01的路径下运行
+```
+/lab/01/subdir/a.sh
+```
+其中a.sh用"./b.sh"调用了subdir下的b.sh, 脚本是找不到b.sh的, 因为"./"现在是在"/lab/01"的路径下, 那么在脚本中就需要用"$(dirname $0)", 也就是去获取当前文件的路径.
+
+## ./
+"./"是指明当前路径, 注意写脚本的时候也要注意用./来指明我们的某一行命令脚本的路径, 比如要运行父路径的脚本, 要用"./../test.sh".
